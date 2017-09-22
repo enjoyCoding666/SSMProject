@@ -11,7 +11,11 @@
     <title>首页</title>
 </head>
 <body>
-         <h1>首页</h1>
-       <br>http://localhost:8080/user/register
+         <a href="index.jsp"><img src="img/index.png"/></a> <br>
+         <a href="index.jsp">首页</a>&nbsp;
+         <a href="/user/register">注册</a>&nbsp;
+         <a href="/user/login">登陆</a> <br>
+         <a href="/user/showUsers">显示所有用户</a>&nbsp;
+         <a href="/user/test">测试页面</a>
 </body>
 </html>
