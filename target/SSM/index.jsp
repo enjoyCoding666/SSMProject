@@ -9,13 +9,22 @@
 <html>
 <head>
     <title>首页</title>
+    <link href="css/menu.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-         <a href="index.jsp"><img src="img/index.png"/></a> <br>
-         <a href="index.jsp">首页</a>&nbsp;
-         <a href="/user/register">注册</a>&nbsp;
-         <a href="/user/login">登陆</a> <br>
-         <a href="/user/showUsers">显示所有用户</a>&nbsp;
-         <a href="/user/test">测试页面</a>
+         <div id="top">
+             <a href="index.jsp"><img src="/img/blue.png" width="700px" /></a> <br>
+         </div>
+
+         <div id="navigation">
+           <ul>
+             <li><a href="index.jsp">首页</a></li>
+             <li><a href="/user/register">注册</a></li>
+             <li><a href="/user/login">登陆</a> <br></li>
+             <li><a href="/user/showUsers">显示所有用户</a></li>
+             <li><a href="/user/test">测试页面</a></li>
+           </ul>
+         </div>
+
 </body>
 </html>
