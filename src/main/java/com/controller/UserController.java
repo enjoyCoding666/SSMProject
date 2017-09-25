@@ -48,13 +48,10 @@ public class UserController {
     public  String toInsert(@RequestParam(value="userId") int id,
                             @RequestParam(value="account")String account,@RequestParam(value="age")int age,
                             @RequestParam(value = "password")String password,HttpServletRequest request, Model model) {
-        if(StringUtils.isEmpty(account) || StringUtils.isEmpty(password)) {
-            return "registerError";
-        }
         User user=new User(id,account,password,age);
         this.userService.insertUser(user);
         request.setAttribute("user",user);        //设置属性，便于在前端页面获取数据
-        return "finishRegister";
+        return "registerFinish";
     }
 
     //尝试从页面获取参数到后台
@@ -64,7 +61,7 @@ public class UserController {
                                    @RequestParam(value = "password")String password,HttpServletRequest request){
         User user=new User(id,userName,password,age);
         request.setAttribute("user",user);
-        return "finishRegister";
+        return "registerFinish";
     }
 
     @RequestMapping("/test")

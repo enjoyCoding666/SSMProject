@@ -3,9 +3,11 @@ package com.serviceImp;
 import com.dao.UserDao;
 import com.pojo.User;
 import com.service.UserService;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -15,10 +17,42 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     @Resource
     private UserDao userDao;
+    private int id;
+    private String account;
+    private String password;
+    private int age;
 
+
+
+    /**
+     * @param user
+     * @return
+     * 插入用户数据到数据库。检验是否已存在相同的用户id、用户名,返回相应的错误信息
+     */
     @Override
-    public void insertUser(User user) {
+    public String insertUser(User user) {
+         //User(id,account,password,age);
+         id=user.getId();
+         account=user.getUserName();
+         password=user.getPassword();
+         age=user.getAge();
+         if(StringUtils.isEmpty(account) || StringUtils.isEmpty(password)) {
+             return "registerError";
+         }
+         List<User> userList=showUsers();
+        Iterator iterator=userList.iterator();
+        while (iterator.hasNext()) {
+            User oldUser=(User) iterator.next();
+            int oldId=oldUser.getId();
+            String oldAccount=oldUser.getUserName();
+            if(id==oldId || account.equals(oldAccount) ) {
+                return "registerExistedUser";
+            }
+
+        }
+
          this.userDao.insert(user);
+         return "registerFinish";
     }
 
     @Override
