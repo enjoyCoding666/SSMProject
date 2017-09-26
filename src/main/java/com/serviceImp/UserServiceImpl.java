@@ -31,13 +31,13 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public String insertUser(User user) {
-         //User(id,account,password,age);
          id=user.getId();
          account=user.getUserName();
          password=user.getPassword();
          age=user.getAge();
-         if(StringUtils.isEmpty(account) || StringUtils.isEmpty(password)) {
-             return "registerError";
+         String registerResult="registerSuccess";
+         if(StringUtils.isEmpty(account) || StringUtils.isEmpty(password) ) {
+             registerResult= "registerError";
          }
          List<User> userList=showUsers();
         Iterator iterator=userList.iterator();
@@ -46,13 +46,14 @@ public class UserServiceImpl implements UserService {
             int oldId=oldUser.getId();
             String oldAccount=oldUser.getUserName();
             if(id==oldId || account.equals(oldAccount) ) {
-                return "registerExistedUser";
+                registerResult= "registerExistedUser";
             }
 
         }
-
-         this.userDao.insert(user);
-         return "registerFinish";
+         if(registerResult.equals("registerSuccess"))  {
+             this.userDao.insert(user);
+         }
+         return registerResult;
     }
 
     @Override

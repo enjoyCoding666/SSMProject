@@ -49,8 +49,9 @@ public class UserController {
                             @RequestParam(value="account")String account,@RequestParam(value="age")int age,
                             @RequestParam(value = "password")String password,HttpServletRequest request, Model model) {
         User user=new User(id,account,password,age);
-        this.userService.insertUser(user);
+        String registerResult=this.userService.insertUser(user);
         request.setAttribute("user",user);        //设置属性，便于在前端页面获取数据
+        request.setAttribute("registerResult",registerResult);
         return "registerFinish";
     }
 
