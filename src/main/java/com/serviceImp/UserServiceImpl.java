@@ -1,7 +1,7 @@
 package com.serviceImp;
 
 import com.dao.UserDao;
-import com.pojo.User;
+import com.model.User;
 import com.service.UserService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;

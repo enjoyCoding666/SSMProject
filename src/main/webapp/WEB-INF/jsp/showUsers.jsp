@@ -1,5 +1,5 @@
 <%@ page import="java.util.Iterator" %>
-<%@ page import="com.pojo.User" %>
+<%@ page import="com.model.User" %>
 <%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: lenovo

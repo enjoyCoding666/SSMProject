@@ -10,6 +10,7 @@ SSM框架练手项目
 7.修改用户个人资料，修改密码等  
 8.图书信息Book表
 9.将注册页面的大量jsp代码更换为jstl.
+10.仔细阅读spring-mvc.xml，spring-mybatis.xml。。
 
 收获：  
 1.WEB—INF文件夹下的文件，为了保证安全性，是无法通过Url访问的。  

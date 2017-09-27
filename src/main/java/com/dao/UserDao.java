@@ -1,6 +1,6 @@
 package com.dao;
 
-import com.pojo.User;
+import com.model.User;
 
 import java.util.List;
 

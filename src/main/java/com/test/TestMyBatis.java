@@ -1,12 +1,10 @@
 package com.test;
 
 import com.alibaba.fastjson.JSON;
-import com.pojo.User;
+import com.model.User;
 import com.service.UserService;
 import org.apache.log4j.Logger;
 import org.junit.Test;
-import org.junit.Before; 
-import org.junit.After;
 
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
