@@ -174,7 +174,6 @@
             <version>4.5</version>
         </dependency>
 
-
     </dependencies>
 
     <build>
@@ -208,12 +207,14 @@
                 <filtering>true</filtering>
             </resource>
 
-            <resource>
-                <directory>src/main/resources</directory>
-                <includes>
-                    <include>**/*.properties</include>
-                </includes>
-            </resource>
+            <!--<resource>-->
+                <!--<directory>src/main/resources</directory>-->
+                <!--<includes>-->
+                    <!--<include>**/*.properties</include>-->
+                <!--</includes>-->
+                <!--<filtering>true</filtering>-->
+            <!--</resource>-->
+
         </resources>
 
 

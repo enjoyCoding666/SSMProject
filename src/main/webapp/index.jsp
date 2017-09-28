@@ -12,6 +12,7 @@
     <link href="css/menu.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
+
          <div id="top">
              <a href="index.jsp"><img src="/img/blue.png" width="700px" /></a> <br>
          </div>
@@ -25,6 +26,5 @@
              <li><a href="/user/test">测试页面</a></li>
            </ul>
          </div>
-
 </body>
 </html>

@@ -39,3 +39,9 @@
     height: auto;
 
 }
+
+body {
+    background-image:url(../img/vn.jpg);
+    background-repeat: no-repeat;
+
+}
