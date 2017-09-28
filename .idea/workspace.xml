@@ -71,27 +71,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="207" column="23" lean-forward="true" selection-start-line="207" selection-start-column="23" selection-end-line="207" selection-end-column="23" />
+            <state relative-caret-position="209">
+              <caret line="206" column="32" lean-forward="false" selection-start-line="206" selection-start-column="32" selection-end-line="206" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BookMapper.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BookMapper.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mapping/BookMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="12" column="14" lean-forward="false" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+            <state relative-caret-position="121">
+              <caret line="84" column="31" lean-forward="true" selection-start-line="84" selection-start-column="31" selection-end-line="84" selection-end-column="31" />
               <folding>
-                <marker date="1506602185292" expanded="true" signature="965:1076" ph="select from book_t" />
-                <marker date="1506602185292" expanded="true" signature="1163:1228" ph="delete from " />
-                <marker date="1506602185292" expanded="true" signature="1300:1586" ph="insert into book_t... " />
-                <marker date="1506602185292" expanded="true" signature="2800:3351" ph="update book_... " />
-                <marker date="1506602185292" expanded="true" signature="3435:3721" ph="update book_... " />
+                <marker date="1506603442806" expanded="true" signature="966:1077" ph="select from book_t" />
+                <marker date="1506603442806" expanded="true" signature="1164:1229" ph="delete from " />
+                <marker date="1506603442806" expanded="true" signature="1301:1587" ph="insert into book_t... " />
+                <marker date="1506603442806" expanded="true" signature="2801:3352" ph="update book_... " />
               </folding>
             </state>
           </provider>
@@ -279,8 +278,8 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/registerFinish.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/css/menu.css" />
         <option value="$PROJECT_DIR$/src/main/resources/generator.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mapping/BookMapper.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mapping/BookMapper.xml" />
       </list>
     </option>
   </component>
@@ -1408,7 +1407,7 @@
       <workItem from="1506475614814" duration="8116000" />
       <workItem from="1506499122585" duration="5103000" />
       <workItem from="1506561886017" duration="6420000" />
-      <workItem from="1506601142136" duration="1943000" />
+      <workItem from="1506601142136" duration="3012000" />
     </task>
     <task id="LOCAL-00001" summary="2017/09/22 09:54&#10;Bug:首页的图片链接不显示图片">
       <created>1506045331571</created>
@@ -1453,7 +1452,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="275861000" />
+    <option name="totallyTimeSpent" value="276930000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1489,7 +1488,7 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26256984" sideWeight="0.49318182" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37430167" sideWeight="0.49318182" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5069832" sideWeight="0.4978425" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34217876" sideWeight="0.48867315" order="7" side_tool="false" content_ui="tabs" />
@@ -1899,25 +1898,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mapping/BookMapper.xml">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="12" column="14" lean-forward="false" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
-          <folding>
-            <marker date="1506602185292" expanded="true" signature="965:1076" ph="select from book_t" />
-            <marker date="1506602185292" expanded="true" signature="1163:1228" ph="delete from " />
-            <marker date="1506602185292" expanded="true" signature="1300:1586" ph="insert into book_t... " />
-            <marker date="1506602185292" expanded="true" signature="2800:3351" ph="update book_... " />
-            <marker date="1506602185292" expanded="true" signature="3435:3721" ph="update book_... " />
-          </folding>
+        <state relative-caret-position="209">
+          <caret line="206" column="32" lean-forward="false" selection-start-line="206" selection-start-column="32" selection-end-line="206" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mapping/BookMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="207" column="23" lean-forward="true" selection-start-line="207" selection-start-column="23" selection-end-line="207" selection-end-column="23" />
-          <folding />
+        <state relative-caret-position="121">
+          <caret line="84" column="31" lean-forward="true" selection-start-line="84" selection-start-column="31" selection-end-line="84" selection-end-column="31" />
+          <folding>
+            <marker date="1506603442806" expanded="true" signature="966:1077" ph="select from book_t" />
+            <marker date="1506603442806" expanded="true" signature="1164:1229" ph="delete from " />
+            <marker date="1506603442806" expanded="true" signature="1301:1587" ph="insert into book_t... " />
+            <marker date="1506603442806" expanded="true" signature="2801:3352" ph="update book_... " />
+          </folding>
         </state>
       </provider>
     </entry>
