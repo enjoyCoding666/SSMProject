@@ -2,7 +2,7 @@ package com.dao;
 
 import com.model.Book;
 
-public interface BookDao {
+public interface BookMapper {
     int deleteByPrimaryKey(Integer bookId);
 
     int insert(Book record);
