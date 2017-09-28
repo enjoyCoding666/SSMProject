@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.BookMapper" >
+  <resultMap id="BaseResultMap" type="com.model.Book" >
+    <constructor >
+      <idArg column="book_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="type" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="author" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="publishers" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="borrowDate" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+    </constructor>
+
+  </resultMap>
+  <sql id="Base_Column_List" >
+    book_id, name, type, author, publishers, borrowDate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from book_t
+    where book_id = #{bookId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from book_t
+    where book_id = #{bookId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.model.Book" >
+    insert into book_t (book_id, name, type, 
+      author, publishers, borrowDate
+      )
+    values (#{bookId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{author,jdbcType=VARCHAR}, #{publishers,jdbcType=VARCHAR}, #{borrowdate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.model.Book" >
+    insert into book_t
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="bookId != null" >
+        book_id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="author != null" >
+        author,
+      </if>
+      <if test="publishers != null" >
+        publishers,
+      </if>
+      <if test="borrowdate != null" >
+        borrowDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="bookId != null" >
+        #{bookId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null" >
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="publishers != null" >
+        #{publishers,jdbcType=VARCHAR},
+      </if>
+      <if test="borrowdate != null" >
+        #{borrowdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.model.Book" >
+    update book_t
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null" >
+        author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="publishers != null" >
+        publishers = #{publishers,jdbcType=VARCHAR},
+      </if>
+      <if test="borrowdate != null" >
+        borrowDate = #{borrowdate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where book_id = #{bookId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.model.Book" >
+    update book_t
+    set name = #{name,jdbcType=VARCHAR},
+    type = #{type,jdbcType=VARCHAR},
+    author = #{author,jdbcType=VARCHAR},
+    publishers = #{publishers,jdbcType=VARCHAR},
+    borrowDate = #{borrowdate,jdbcType=TIMESTAMP}
+    where book_id = #{bookId,jdbcType=INTEGER}
+  </update>
+</mapper>
