@@ -10,6 +10,7 @@
       <arg column="publishers" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="borrowDate" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
+
   </resultMap>
   <sql id="Base_Column_List" >
     book_id, name, type, author, publishers, borrowDate
@@ -99,10 +100,10 @@
   <update id="updateByPrimaryKey" parameterType="com.model.Book" >
     update book_t
     set name = #{name,jdbcType=VARCHAR},
-      type = #{type,jdbcType=VARCHAR},
-      author = #{author,jdbcType=VARCHAR},
-      publishers = #{publishers,jdbcType=VARCHAR},
-      borrowDate = #{borrowdate,jdbcType=TIMESTAMP}
+    type = #{type,jdbcType=VARCHAR},
+    author = #{author,jdbcType=VARCHAR},
+    publishers = #{publishers,jdbcType=VARCHAR},
+    borrowDate = #{borrowdate,jdbcType=TIMESTAMP}
     where book_id = #{bookId,jdbcType=INTEGER}
   </update>
 </mapper>
