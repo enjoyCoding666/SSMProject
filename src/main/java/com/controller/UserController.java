@@ -4,13 +4,13 @@ import com.model.User;
 import com.serviceImp.UserServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.io.Writer;
 import java.util.List;
 
 /**
@@ -70,6 +70,12 @@ public class UserController {
         return "test";
     }
 
+    @RequestMapping("/{account}")
+    public  String testParam(@PathVariable("account") String useName){
+        System.out.println(useName);
+         return  "test";
+    }
+
     @RequestMapping("/register")
     public String toRegister() {
 
@@ -83,6 +89,8 @@ public class UserController {
         return "login";
     }
 
+
+
 //返回json数据
     @ResponseBody
     @RequestMapping("/json")
@@ -94,4 +102,7 @@ public class UserController {
         user.setPassword("feng");
         return  user;
     }
+
+
+
 }
