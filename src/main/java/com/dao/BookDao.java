@@ -2,7 +2,9 @@ package com.dao;
 
 import com.model.Book;
 
-public interface BookMapper {
+import java.util.List;
+
+public interface BookDao {
     int deleteByPrimaryKey(Integer bookId);
 
     int insert(Book record);
@@ -14,4 +16,6 @@ public interface BookMapper {
     int updateByPrimaryKeySelective(Book record);
 
     int updateByPrimaryKey(Book record);
+
+    List selectAllBooks();
 }

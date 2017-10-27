@@ -4,6 +4,9 @@ import com.model.User;
 
 import java.util.List;
 
+/**
+ * Dao里面的每个方法，分别对应mapper文件里面的sql语句
+ */
 public interface UserDao {
     int deleteByPrimaryKey(Integer id);
 
