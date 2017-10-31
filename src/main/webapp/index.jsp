@@ -24,6 +24,7 @@
              <li><a href="/user/login">登陆</a> <br></li>
              <li><a href="/user/showUsers">显示所有用户</a></li>
              <li><a href="/user/test">测试页面</a></li>
+             <li><a href="/book/listBook?nowPage=1">显示所有图书信息</a></li>
            </ul>
          </div>
 </body>

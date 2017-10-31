@@ -8,7 +8,7 @@
       <arg column="type" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="author" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="publishers" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="borrowDate" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="borrowDate" jdbcType="TIMESTAMP" javaType="java.lang.String" />
     </constructor>
 
   </resultMap>

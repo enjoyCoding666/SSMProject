@@ -11,18 +11,35 @@
 <head>
     <title>Title</title>
 </head>
-<body>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(
+        function getValue() {
+            var option=$("#option");
+            return option.val();
+        }
+    );
 
+</script>
+<body>
+   <table border="1"  >
      <c:forEach var="book" items="${requestScope.bookList}">
-          <table border="1">
               <tr>
                   <td> ${  book.getBookId() }</td>
                   <td>  ${ book.getType() }</td>
                   <td>  ${ book.getAuthor()} </td>
                   <td> ${  book.getPublishers() }    </td>
-                  <td> ${   book.getBorrowdate() } </td>
+                  <td> ${  book.getBorrowdate() } </td>
               </tr>
-          </table>
      </c:forEach>
+   </table>
+   <a href="/book/listBook?nowPage=${requestScope.page.getPreviousPage() }">上一页</a>
+   <a href="/book/listBook?nowPage=${ requestScope.page.getNextPage() }">下一页</a>
+   <select id="option">
+       <c:forEach var="page" begin="1" end="${requestScope.page.getAmount() }" step="1" >
+           <option> ${ page }</option>
+       </c:forEach>
+   </select>
+   <a href="/book/listBook?nowPage=">跳转页面</a>
 </body>
 </html>

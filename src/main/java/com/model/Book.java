@@ -13,9 +13,9 @@ public class Book {
 
     private String publishers;
 
-    private Date borrowdate;
+    private String borrowdate;
 
-    public Book(Integer bookId, String name, String type, String author, String publishers, Date borrowdate) {
+    public Book(Integer bookId, String name, String type, String author, String publishers, String borrowdate) {
         this.bookId = bookId;
         this.name = name;
         this.type = type;
@@ -68,11 +68,11 @@ public class Book {
         this.publishers = publishers == null ? null : publishers.trim();
     }
 
-    public Date getBorrowdate() {
+    public String getBorrowdate() {
         return borrowdate;
     }
 
-    public void setBorrowdate(Date borrowdate) {
+    public void setBorrowdate(String borrowdate) {
         this.borrowdate = borrowdate;
     }
 }
