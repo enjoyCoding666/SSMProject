@@ -31,7 +31,7 @@ public class BookController {
        @RequestMapping(value = "/listBook",method = RequestMethod.GET)
        public String listBook(HttpServletRequest request){
            int nowPage=Integer.parseInt(request.getParameter("nowPage"));
-           List bookList=this.bookDao.selectAllBooks();
+           List bookList=this.bookDao.selectPageBooks(nowPage,5);
            int amount=bookList.size();
            PageUtil page=new PageUtil(SIZE,amount,nowPage);
            request.setAttribute("bookList",bookList);

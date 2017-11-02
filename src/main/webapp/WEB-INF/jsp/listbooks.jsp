@@ -10,16 +10,13 @@
 <html>
 <head>
     <title>Title</title>
+    <script type="text/javascript" src="/jquery/jquery-3.2.1.js"></script>
 </head>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <script type="text/javascript">
-    $(document).ready(
-        function getValue() {
-            var option=$("#option");
-            return option.val();
-        }
-    );
-
+    function setHref() {
+        var value=$("#option").val();
+        $("#pageUrl").attr("href","/book/listBook?nowPage="+value);
+    }
 </script>
 <body>
    <table border="1"  >
@@ -33,13 +30,15 @@
               </tr>
      </c:forEach>
    </table>
-   <a href="/book/listBook?nowPage=${requestScope.page.getPreviousPage() }">上一页</a>
-   <a href="/book/listBook?nowPage=${ requestScope.page.getNextPage() }">下一页</a>
-   <select id="option">
+   <a href="${pageContext.request.contextPath}/book/listBook?nowPage=1">首页</a>
+   <a href="${pageContext.request.contextPath}/book/listBook?nowPage=${requestScope.page.getPreviousPage() }">上一页</a>
+   <a href="${pageContext.request.contextPath}/book/listBook?nowPage=${ requestScope.page.getNextPage() }">下一页</a>
+   <select title="select" id="option" onchange="setHref()">
        <c:forEach var="page" begin="1" end="${requestScope.page.getAmount() }" step="1" >
            <option> ${ page }</option>
        </c:forEach>
    </select>
-   <a href="/book/listBook?nowPage=">跳转页面</a>
+   <a id="pageUrl" href="${pageContext.request.contextPath}/book/listBook?nowPage=1">跳转页面</a>
+   <a href="${pageContext.request.contextPath}/book/listBook?nowPage=${requestScope.page.getPage()}">末页</a>
 </body>
 </html>

@@ -18,4 +18,6 @@ public interface BookDao {
     int updateByPrimaryKey(Book record);
 
     List selectAllBooks();
+
+    List selectPageBooks(int nowPage,int limitPage);
 }
