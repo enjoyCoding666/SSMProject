@@ -15,7 +15,8 @@
 <script type="text/javascript">
     function setHref() {
         var value=$("#option").val();
-        $("#pageUrl").attr("href","/book/listBook?nowPage="+value);
+        $("#pageUrl").attr("href","${pageContext.request.contextPath}/book/listBook?nowPage="+value);
+        return value;
     }
 </script>
 <body>
@@ -34,11 +35,15 @@
    <a href="${pageContext.request.contextPath}/book/listBook?nowPage=${requestScope.page.getPreviousPage() }">上一页</a>
    <a href="${pageContext.request.contextPath}/book/listBook?nowPage=${ requestScope.page.getNextPage() }">下一页</a>
    <select title="select" id="option" onchange="setHref()">
-       <c:forEach var="page" begin="1" end="${requestScope.page.getAmount() }" step="1" >
+       <c:forEach var="page" begin="1" end="${requestScope.page.getPage() }" step="1" >
            <option> ${ page }</option>
        </c:forEach>
    </select>
-   <a id="pageUrl" href="${pageContext.request.contextPath}/book/listBook?nowPage=1">跳转页面</a>
+   <a id="pageUrl" href="">跳转页面</a>
    <a href="${pageContext.request.contextPath}/book/listBook?nowPage=${requestScope.page.getPage()}">末页</a>
+   <br><br>
+   当前页数:${requestScope.page.getNowPage() }<br>
+   总页数 : ${ requestScope.page.getPage() }
+
 </body>
 </html>

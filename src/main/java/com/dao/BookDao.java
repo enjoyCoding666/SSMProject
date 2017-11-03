@@ -1,6 +1,7 @@
 package com.dao;
 
 import com.model.Book;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -19,5 +20,5 @@ public interface BookDao {
 
     List selectAllBooks();
 
-    List selectPageBooks(int nowPage,int limitPage);
+    List selectPageBooks(@Param("nowPage") int nowPage, @Param("limitPage")  int limitPage);
 }

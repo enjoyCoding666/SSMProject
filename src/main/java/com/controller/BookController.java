@@ -21,7 +21,7 @@ import java.util.List;
 public class BookController {
        @Resource
        private BookDao bookDao;
-       private final int SIZE=2;
+       private final int SIZE=3;
 
     /**
      * 通过 http://localhost:8080/book/listBook?nowPage=页数  访问
@@ -31,8 +31,8 @@ public class BookController {
        @RequestMapping(value = "/listBook",method = RequestMethod.GET)
        public String listBook(HttpServletRequest request){
            int nowPage=Integer.parseInt(request.getParameter("nowPage"));
-           List bookList=this.bookDao.selectPageBooks(nowPage,5);
-           int amount=bookList.size();
+           List bookList=this.bookDao.selectPageBooks( (nowPage-1)*SIZE,SIZE);
+           int amount=this.bookDao.selectAllBooks().size();
            PageUtil page=new PageUtil(SIZE,amount,nowPage);
            request.setAttribute("bookList",bookList);
            request.setAttribute("page",page);

@@ -24,6 +24,9 @@
   <select id="selectAllBooks" resultMap="BaseResultMap">
       select <include refid="Base_Column_List"/>  from book_t
   </select>
+  <select id="selectPageBooks" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+       select <include refid="Base_Column_List"/> from book_t limit #{nowPage},#{limitPage}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from book_t
     where book_id = #{bookId,jdbcType=INTEGER}
