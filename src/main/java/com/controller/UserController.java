@@ -5,12 +5,17 @@ import com.serviceImp.UserServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.Writer;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -49,7 +54,8 @@ public class UserController {
                             @RequestParam(value = "password")String password,HttpServletRequest request, Model model) {
         User user=new User(id,account,password,age);
         String registerResult=this.userService.insertUser(user);
-        request.setAttribute("user",user);        //设置属性，便于在前端页面获取数据
+        //设置属性，便于在前端页面获取数据
+        request.setAttribute("user",user);
         request.setAttribute("registerResult",registerResult);
         return "registerFinish";
     }
@@ -78,17 +84,34 @@ public class UserController {
 
     @RequestMapping("/register")
     public String toRegister() {
-
         return "register";
     }
 
 
     @RequestMapping("/login")
     public String toLogin(){
-
         return "login";
     }
 
+    @RequestMapping(value = "/upload")
+    public String uploadPage(){
+        return "upload";
+    }
+
+    @RequestMapping(value = "/uploadId" ,method = RequestMethod.POST)
+    public  String upload(HttpServletRequest request) throws IOException{
+        MultipartHttpServletRequest mRequest=(MultipartHttpServletRequest) request;
+        MultipartFile file=mRequest.getFile("file");
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String fileName=file.getOriginalFilename();
+        String localFile=request.getSession().getServletContext().getRealPath("/")
+                +"uploadId\\"+sdf.format(new Date())+fileName.substring(fileName.lastIndexOf("."));
+        FileOutputStream fos=new FileOutputStream( localFile.replaceAll("\\\\","\\\\\\\\") );
+        fos.write(file.getBytes());
+        fos.flush();
+        fos.close();
+        return "test";
+    }
 
 
 //返回json数据
