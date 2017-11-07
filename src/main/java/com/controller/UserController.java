@@ -37,7 +37,8 @@ public class UserController {
         return "showUser";
     }
 
-    //查询所有的用户
+
+    //显示所有的用户
     @RequestMapping("/showUsers")
     public String toShowUsers(HttpServletRequest request) {
         List<User> userList;
@@ -127,5 +128,16 @@ public class UserController {
     }
 
 
+    @ResponseBody
+    @RequestMapping(value = "/searchUser",method = RequestMethod.POST)
+    public User searchUser(HttpServletRequest request) {
+        int userId=Integer.parseInt(request.getParameter("id"));
+        User user=this.userService.getUserById(userId);
+        return  user;
+    }
 
+    @RequestMapping(value = "/toAjax",method = RequestMethod.GET)
+    public String toAjax(){
+        return "ajax";
+    }
 }
