@@ -28,7 +28,7 @@ mysql> create table user_t(
  create table book_t(
 <br> book_id int(5) not null primary key auto_increment,
 <br> name varchar(20) not null,
-<br> type varchar(20) not null,<br><br><br>
+<br> type varchar(20) not null,
 <br> author varchar(20) not null,
 <br> publishers varchar(20) ,
 <br> borrowDate datetime
