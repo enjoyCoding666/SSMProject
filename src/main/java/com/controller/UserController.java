@@ -2,6 +2,7 @@ package com.controller;
 
 import com.model.User;
 import com.serviceImp.UserServiceImpl;
+import com.util.FileUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.Writer;
@@ -99,19 +101,20 @@ public class UserController {
         return "upload";
     }
 
-    @RequestMapping(value = "/uploadId" ,method = RequestMethod.POST)
+    @RequestMapping(value = "/uploadFile" ,method = RequestMethod.POST)
     public  String upload(HttpServletRequest request) throws IOException{
         MultipartHttpServletRequest mRequest=(MultipartHttpServletRequest) request;
         MultipartFile file=mRequest.getFile("file");
-        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String fileName=file.getOriginalFilename();
-        String localFile=request.getSession().getServletContext().getRealPath("/")
-                +"uploadId\\"+sdf.format(new Date())+fileName.substring(fileName.lastIndexOf("."));
-        FileOutputStream fos=new FileOutputStream( localFile.replaceAll("\\\\","\\\\\\\\") );
-        fos.write(file.getBytes());
-        fos.flush();
-        fos.close();
-        return "test";
+        FileUtils.saveMultipartFile(file,request);
+        return "uploadFinish";
+    }
+
+    @RequestMapping(value = "/uploadFiles" ,method = RequestMethod.POST)
+     public String  uploadFiles(@RequestParam("files") MultipartFile[] files,HttpServletRequest request) throws Exception {
+         for(MultipartFile file: files) {
+              FileUtils.saveMultipartFile(file,request);
+          }
+         return "uploadFinish";
     }
 
 

@@ -11,9 +11,15 @@
     <title>Title</title>
 </head>
 <body>
-    <form action="uploadId" method="post" enctype="multipart/form-data">
-        <input type="file" name="file"> <br>
+    <form action="uploadFiles" method="post" enctype="multipart/form-data">
+        <input type="file" name="files"> <br>
         <input type="submit" value="submit">
+    </form>
+
+    <form action="/user/uploadFiles" method="post" enctype="multipart/form-data">
+         选择文件1:<input type="file" name="files"/> <br>
+         选择文件2:<input type="file" name="files"/> <br>
+         <input type="submit" value="上传"/>
     </form>
 </body>
 </html>
