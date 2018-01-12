@@ -14,12 +14,6 @@ SSM框架练手项目
 10.仔细阅读spring-mvc.xml，spring-mybatis.xml。。<br>
 11.搜索、二级联动。
 
-
-收获：<br>
-1.js的简单写法。比较按钮事件等。<br> 
-2.css样式的简单应用。<br>
-3.web分层。<br>
-
 数据库信息：<br>
 mysql> create table user_t(
  id int(5) not null primary key auto_increment,

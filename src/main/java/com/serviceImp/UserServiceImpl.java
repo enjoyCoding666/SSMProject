@@ -50,7 +50,7 @@ public class UserServiceImpl implements UserService {
             }
 
         }
-         if(registerResult.equals("registerSuccess"))  {
+         if("registerSuccess" .equals(  registerResult))  {
              this.userDao.insert(user);
          }
          return registerResult;

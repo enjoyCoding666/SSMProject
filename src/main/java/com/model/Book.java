@@ -1,6 +1,5 @@
 package com.model;
 
-import java.util.Date;
 
 public class Book {
     private Integer bookId;
@@ -75,4 +74,5 @@ public class Book {
     public void setBorrowdate(String borrowdate) {
         this.borrowdate = borrowdate;
     }
+
 }

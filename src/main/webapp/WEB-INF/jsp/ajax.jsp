@@ -14,7 +14,7 @@
 <script type="text/javascript">
    $(document).ready( function () {
        $("#search").click(function () {
-           console.log("asd")
+           console.log("ajax")
             $.ajax({
                 type:"POST",
                 url:"/user/searchUser",
