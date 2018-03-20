@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by lenovo on 2017/8/10.
  */
-@Service("userService")
+@Service
 public class UserServiceImpl implements UserService {
     @Resource
     private UserDao userDao;
@@ -21,8 +21,6 @@ public class UserServiceImpl implements UserService {
     private String account;
     private String password;
     private int age;
-
-
 
     /**
      * @param user

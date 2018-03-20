@@ -1,6 +1,7 @@
 package com.controller;
 
 import com.model.User;
+import com.service.UserService;
 import com.serviceImp.UserServiceImpl;
 import com.util.FileUtils;
 import org.springframework.stereotype.Controller;
@@ -26,8 +27,8 @@ import java.util.List;
 @Controller
 @RequestMapping("/user")
 public class UserController {
-    @Resource(name = "userService")
-    private UserServiceImpl userService;
+    @Resource(name = "userServiceImpl")
+    private UserService userService;
 
     //根据用户id查询用户信息
     //通过  http://localhost:8080/user/showUser?id=1访问
