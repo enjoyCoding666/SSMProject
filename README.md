@@ -14,21 +14,6 @@ SSM框架练手项目
 10.仔细阅读spring-mvc.xml，spring-mybatis.xml。。<br>
 11.搜索、二级联动。
 
-数据库信息：<br>
-mysql> create table user_t(
- id int(5) not null primary key auto_increment,
- user_name varchar(20) not null,
- password char(20) not null,
- age int(5) 
- );
 
- create table book_t(
-<br> book_id int(5) not null primary key auto_increment,
-<br> name varchar(20) not null,
-<br> type varchar(20) not null,
-<br> author varchar(20) not null,
-<br> publishers varchar(20) ,
-<br> borrowDate datetime
- );
 
 

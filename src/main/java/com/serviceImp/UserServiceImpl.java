@@ -1,9 +1,11 @@
 package com.serviceImp;
 
+import com.aop.Interceptor;
 import com.dao.UserDao;
 import com.model.User;
 import com.service.UserService;
 import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -21,6 +23,7 @@ public class UserServiceImpl implements UserService {
     private String account;
     private String password;
     private int age;
+
 
     /**
      * @param user
