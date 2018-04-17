@@ -1,5 +1,6 @@
 package test.com.serviceImp; 
 
+import com.service.UserService;
 import com.serviceImp.UserServiceImpl;
 import org.junit.Assert;
 import org.junit.Test;
@@ -22,7 +23,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class UserServiceImplTest {
 
     @Autowired
-     private UserServiceImpl userService;
+     private UserService userService;
 
 @Before
 public void before() throws Exception { 
