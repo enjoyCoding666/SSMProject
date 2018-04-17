@@ -1,9 +1,6 @@
 package com.aop;
 
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -23,9 +20,19 @@ public class Interceptor {
         System.out.println("前置通知");
     }
 
-    @After("anyMethod()")
+    @AfterReturning("anyMethod()")
     public void doAfterReturning(){
         System.out.println("后置通知");
+    }
+
+    @After("anyMethod()")
+    public  void doAfter() {
+        System.out.println("最终通知");
+    }
+
+    @AfterThrowing("anyMethod()")
+    public  void doAfterThrowing() {
+        System.out.println("异常通知");
     }
 
 }

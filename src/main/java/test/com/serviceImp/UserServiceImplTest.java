@@ -62,7 +62,8 @@ public void testGetUserById() throws Exception {
 */ 
 @Test
 public void testShowUsers() throws Exception { 
-//TODO: Test goes here... 
+//TODO: Test goes here...
+     userService.showUsers();
 } 
 
 
