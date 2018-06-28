@@ -18,7 +18,9 @@ public interface BookDao {
 
     int updateByPrimaryKey(Book record);
 
-    List selectAllBooks();
+    List<Book> selectAllBooks();
 
-    List selectPageBooks(@Param("nowPage") int nowPage, @Param("limitPage")  int limitPage);
+    List<Book> selectPageBooks(@Param("nowPage") int nowPage, @Param("limitPage")  int limitPage);
+
+    List<Book> selectBookInfoByUserId();
 }

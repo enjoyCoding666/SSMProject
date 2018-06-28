@@ -2,6 +2,7 @@ package com.serviceImp;
 
 import com.aop.Interceptor;
 import com.dao.UserDao;
+import com.model.Book;
 import com.model.User;
 import com.service.UserService;
 import org.apache.commons.lang.StringUtils;
@@ -55,6 +56,18 @@ public class UserServiceImpl implements UserService {
              this.userDao.insert(user);
          }
          return registerResult;
+    }
+
+    @Override
+    public List<User> selectBookInfoByUserId() {
+            List<User> userList=userDao.selectBookInfoByUserId();
+//            for(User user : userList) {
+//                String name=user.getUserName();
+//                List<Book> bookList=user.getBookList();
+//
+//            }
+            return userList;
+
     }
 
     @Override

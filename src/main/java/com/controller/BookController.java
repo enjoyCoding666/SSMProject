@@ -2,6 +2,7 @@ package com.controller;
 
 import com.dao.BookDao;
 import com.model.Book;
+import com.model.User;
 import com.util.PageUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,5 +39,6 @@ public class BookController {
            request.setAttribute("page",page);
            return  "listbooks";
        }
+
 
 }

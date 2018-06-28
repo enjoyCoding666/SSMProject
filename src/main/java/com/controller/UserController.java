@@ -144,4 +144,13 @@ public class UserController {
     public String toAjax(){
         return "ajax";
     }
+
+
+
+    @RequestMapping(value = "/association",method = RequestMethod.GET)
+    public String findBookByUserId(HttpServletRequest request){
+        List<User> userList=this.userService.selectBookInfoByUserId();
+        request.setAttribute("userList",userList);
+        return  "association";
+    }
 }

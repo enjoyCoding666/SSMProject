@@ -1,5 +1,7 @@
 package com.model;
 
+import java.util.List;
+
 public class User {
     private Integer id;
 
@@ -9,12 +11,24 @@ public class User {
 
     private Integer age;
 
+    private Book book;
+
+
     public User(Integer id, String userName, String password, Integer age) {
         this.id = id;
         this.userName = userName;
         this.password = password;
         this.age = age;
     }
+
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
+
 
     public User() {
         super();

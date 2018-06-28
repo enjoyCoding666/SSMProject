@@ -22,5 +22,5 @@ public interface UserDao {
 
     int updateByPrimaryKey(User user);
 
-
+    List<User> selectBookInfoByUserId();
 }
