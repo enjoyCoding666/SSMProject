@@ -4,9 +4,9 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-                            http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+                            http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
                             http://www.springframework.org/schema/context
-                            http://www.springframework.org/schema/context/spring-context-3.1.xsd
+                            http://www.springframework.org/schema/context/spring-context-4.0.xsd
                             http://www.springframework.org/schema/mvc
                             http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
                             http://www.springframework.org/schema/aop
@@ -14,8 +14,7 @@
                                                                                           ">
     <!--处理静态资源-->
     <mvc:default-servlet-handler/>
-    <!--注解驱动-->
-    <mvc:annotation-driven/>
+
 
     <!--aop,配置自动完成创建代理织入切面-->
     <aop:aspectj-autoproxy />
@@ -23,6 +22,20 @@
 
     <!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
     <context:component-scan base-package="com.controller" />
+
+    <!--注解驱动-->
+    <mvc:annotation-driven/>
+
+    <!--添加拦截器-->
+    <!--<mvc:interceptors>-->
+        <!--<mvc:interceptor>-->
+            <!--&lt;!&ndash; /** 表示拦截所有的请求&ndash;&gt;-->
+            <!--&lt;!&ndash;<mvc:mapping path="/**"/>&ndash;&gt;-->
+            <!--<mvc:mapping path="/test"/>-->
+            <!--<bean class="com.interceptor.LogInterceptor"/>-->
+        <!--</mvc:interceptor>-->
+    <!--</mvc:interceptors>-->
+
     <!--避免IE执行AJAX时，返回JSON出现下载文件 -->
     <bean id="mappingJacksonHttpMessageConverter"
           class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">

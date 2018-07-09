@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Aspect
-public class Interceptor {
+public class AopTest {
     /**
      * 声明一个切点。切入点名称为anyMethod
      */

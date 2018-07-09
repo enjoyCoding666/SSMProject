@@ -14,6 +14,8 @@ SSM框架练手项目
 10.仔细阅读spring-mvc.xml，spring-mybatis.xml。。<br>
 11.搜索、二级联动。
 
-
+遇到的问题：
+1.<mvc:interceptor>不起作用。
+2.Idea报错：The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.
 
 

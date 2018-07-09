@@ -38,6 +38,7 @@
         <servlet-name>SpringMVC</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
+            <!--<init-param>表示启动时初始化的配置文件-->
             <param-name>contextConfigLocation</param-name>
             <param-value>classpath:spring-mvc.xml</param-value>
         </init-param>
@@ -45,8 +46,9 @@
         <async-supported>true</async-supported>
     </servlet>
     <servlet-mapping>
+        <!--<servlet-mapping>中的</servlet-name>必须与<servlet>里面的<servlet-name>保持一致-->
         <servlet-name>SpringMVC</servlet-name>
-        <!-- 此处可以可以配置成*.do，对应struts的后缀习惯 -->
+        <!-- 一般定义为“/”，表示所有请求都通过DispatcherServlet来处理-->
         <url-pattern>/</url-pattern>
     </servlet-mapping>
     <welcome-file-list>

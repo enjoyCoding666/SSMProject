@@ -11,7 +11,7 @@
     <title>SSM</title>
 </head>
 <body>
- <table>
+<table>
     <form  action="/user/test"  method="post">
         <tr>
             <td>
