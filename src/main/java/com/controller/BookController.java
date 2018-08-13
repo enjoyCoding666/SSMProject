@@ -40,5 +40,10 @@ public class BookController {
            return  "listbooks";
        }
 
+       @RequestMapping(value = "/searchBook",method  =RequestMethod.GET )
+       public String searchBook() {
+           return "searchBook";
+       }
+
 
 }

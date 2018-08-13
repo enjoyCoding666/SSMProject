@@ -1,6 +1,7 @@
 package com.interceptor;
 
 import org.apache.log4j.Logger;
+import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -8,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Created by lenovo on  七月
+ * 拦截器应该选择 HandlerInterceptor 还是 HandlerInterceptorAdapter？？
  */
 public class LogInterceptor extends HandlerInterceptorAdapter {
      private Logger logger=Logger.getLogger(LogInterceptor.class);
@@ -40,7 +41,7 @@ public class LogInterceptor extends HandlerInterceptorAdapter {
      */
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        super.postHandle(request, response, handler, modelAndView);
+
     }
 
 

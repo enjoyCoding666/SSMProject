@@ -13,3 +13,5 @@ create table book_t(
   borrowDate datetime );
 
 insert into user_t values (1,'lin','lin',25);
+
+INSERT INTO book_t VALUES (8,"活着","短篇小说","余华","作家出版社","2017-07-13 16:00:00");
