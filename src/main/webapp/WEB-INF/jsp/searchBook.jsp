@@ -2,6 +2,11 @@
 <html>
 <head>
     <title>图书检索</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="css/search.css" rel="stylesheet" type="text/css"/>
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
 <script type="text/javascript" src="/jquery/jquery-3.2.1.js"></script>
 <script type="text/javascript" >
@@ -10,7 +15,6 @@
         var date=new Date().Format("yyyy-MM-dd");
         console.log( date);
         $("[name=brrow_time]").val(date);
-//          $("#brrow_time").val(date);
     });
 
     Date.prototype.Format = function(fmt){
@@ -22,6 +26,7 @@
             "s+": this.getSeconds(),
             "S+": this.getMilliseconds()
         };
+        // test()方法用于检测一个字符串是否匹配某个模式.
         //因为date.getFullYear()出来的结果是number类型的,所以为了让结果变成字符串型，下面有两种方法：
         if(/(y+)/.test(fmt)){
             //第一种：利用字符串连接符“+”给date.getFullYear()+""，加一个空字符串便可以将number类型转换成字符串。
@@ -39,10 +44,22 @@
 </script>
 
 <body>
-    图书名称:<input type="text" id="bookName"/> &nbsp;&nbsp;&nbsp;
-    出版社&nbsp;:<input type="text" id="publisher"> <br>
-    作者&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<input type="text" id="author">&nbsp;&nbsp;&nbsp;
-    借出时间:<input type="date" id="brrow_time"  name="brrow_time">
+  <div   >
+      <span class="form-inline" >
+          <span class="search_label">图书名称:</span> <input type="text" class="book_editText"  name="bookName" />
+       </span>
+       <span class="form-inline">
+           <span class="search_label">出版社:</span><input type="text"  class="book_editText"  name="publisher"  /> <br>
+       </span>
+  </div>
 
+  <div  >
+     <span class="form_group input-group-sm" >
+         <span  class="search_label">作者:</span> <input type="text"  class="book_editText"   name="author"/>
+     </span>
+     <span class="form_group">
+        <span class="search_label">借出时间:</span> <input type="date" id="brrow_time"  name="brrow_time"  />
+     </span>
+  </div>
 </body>
 </html>

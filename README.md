@@ -14,11 +14,13 @@ SSM框架练手项目
 10.仔细阅读spring-mvc.xml，spring-mybatis.xml。。(已完成)<br>
 11.搜索、二级联动。比如计算机、科学、文学等一大类，文学又分为小说、散文、诗歌等等。<br>
 12.书籍的增删改查。使用BootStrap来css调好样式。 <br>
+13.文本框、各个控件的css样式等。
+
 
 
 遇到的问题：
 1.html如何优雅地打出多个空格？
-2.html的时间选择器如何设定初始时间？
+2.html的时间选择器如何设定初始时间？理解js中Date的prototype属性。
 遇到的错误：
 1.<mvc:interceptor>不起作用。
 2.Idea报错：The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.
