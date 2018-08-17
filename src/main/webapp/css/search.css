@@ -1,7 +1,23 @@
-.book_editText {
-   padding: 100px;
+
+.search_row {
+        margin-bottom: 5px;
+        margin-top: 5px;
 }
 
 .search_label {
-    width: 400px;
+    width:70px;
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.editText {
+       width: 150px;
+       margin-right: 10px;
+}
+
+
+.search_button {
+    width:200px;
+    margin:  auto 0;
 }

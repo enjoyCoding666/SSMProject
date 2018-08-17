@@ -3,7 +3,7 @@
 <head>
     <title>图书检索</title>
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="css/search.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/search.css" rel="stylesheet" type="text/css"/>
     <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -44,22 +44,27 @@
 </script>
 
 <body>
-  <div   >
-      <span class="form-inline" >
-          <span class="search_label">图书名称:</span> <input type="text" class="book_editText"  name="bookName" />
-       </span>
-       <span class="form-inline">
-           <span class="search_label">出版社:</span><input type="text"  class="book_editText"  name="publisher"  /> <br>
-       </span>
-  </div>
+  <form   >
+      <div class="form-group" style="float:left" >      <%-- 通过左浮动使多个div在一行显示--%>
+          <label class="search_label " >图书名称:</label>    <input type="text" class="editText" name="bookName" />
+       </div>
+       <div class="form-group"   >
+           <label class="search_label"  >出版社:</label>    <input type="text" class="editText" name="publisher"  />
+       </div> <br>
+      <div style="clear:both"></div>
 
-  <div  >
-     <span class="form_group input-group-sm" >
-         <span  class="search_label">作者:</span> <input type="text"  class="book_editText"   name="author"/>
-     </span>
-     <span class="form_group">
-        <span class="search_label">借出时间:</span> <input type="date" id="brrow_time"  name="brrow_time"  />
-     </span>
-  </div>
+     <div class="form_group"  style="float:left">
+         <label  class="search_label">作者:</label> <input type="text" class="editText" name="author"/>
+     </div>
+     <div class="form_group"  >
+        <label class="search_label" >借出时间:</label> <input type="date" id="brrow_time"  name="brrow_time"  class="editText"/>
+     </div><br>
+      <div style="clear:both"></div>
+
+      <div class="form_group" style="float:left">
+          <input type="button" value="查询"  class="search_button">
+      </div>
+
+  </form>
 </body>
 </html>
