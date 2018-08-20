@@ -44,27 +44,26 @@
 </script>
 
 <body>
-  <form   >
-      <div class="form-group" style="float:left" >      <%-- 通过左浮动使多个div在一行显示--%>
-          <label class="search_label " >图书名称:</label>    <input type="text" class="editText" name="bookName" />
-       </div>
-       <div class="form-group"   >
-           <label class="search_label"  >出版社:</label>    <input type="text" class="editText" name="publisher"  />
-       </div> <br>
-      <div style="clear:both"></div>
+<form   >
+    <div class="form-group search_row" style="float:left" >      <%-- 通过左浮动使多个div在一行显示--%>
+        <label class="search_label" >图书名称:</label>    <input type="text" class="editText" name="bookName" />
+    </div>
+    <div class="form-group search_row"  style="float:left"  >
+        <label class="search_label"  >出版社:</label>    <input type="text" class="editText" name="publisher"  />
+    </div>
 
-     <div class="form_group"  style="float:left">
-         <label  class="search_label">作者:</label> <input type="text" class="editText" name="author"/>
-     </div>
-     <div class="form_group"  >
+   <div class="form_group search_row"  style="clear: both; float:left">      <%-- 此处必须清除浮动--%>
+        <label  class="search_label">作者:</label> <input type="text" class="editText" name="author"/>
+    </div>
+    <div class="form_group search_row"  style="float:left"  >
         <label class="search_label" >借出时间:</label> <input type="date" id="brrow_time"  name="brrow_time"  class="editText"/>
-     </div><br>
-      <div style="clear:both"></div>
+    </div>
+    <div style="clear:both"></div>
 
-      <div class="form_group" style="float:left">
-          <input type="button" value="查询"  class="search_button">
-      </div>
+    <div class="form_group search_row" style="float:left">
+        <input type="button" value="查询"  class="search_button">
+    </div>
 
-  </form>
+</form>
 </body>
 </html>
