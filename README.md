@@ -1,6 +1,6 @@
 SSM框架练手项目
 
-待完成功能：<br>
+一、待完成功能：<br>
 0.更换界面，这个界面实在太丑了。<br>
 1.注册功能，实现上传附件至服务器(已完成)<br>
 2.分页显示图书信息(已完成)<br>
@@ -18,10 +18,10 @@ SSM框架练手项目
 
 
 
-遇到的问题：
+二、遇到的问题：
 1.html如何优雅地打出多个空格？
 2.html的时间选择器如何设定初始时间？理解js中Date的prototype属性。
-遇到的错误：
+三、遇到的错误：
 1.<mvc:interceptor>不起作用。
 2.Idea报错：The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.
 

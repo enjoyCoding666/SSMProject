@@ -6,42 +6,10 @@
     <link href="/css/search.css" rel="stylesheet" type="text/css"/>
     <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/jquery/jquery-3.2.1.js"></script>
+    <script src="/js/searchBook.js" type="text/javascript" ></script>
 
 </head>
-<script type="text/javascript" src="/jquery/jquery-3.2.1.js"></script>
-<script type="text/javascript" >
-
-    $(document).ready(function () {
-        var date=new Date().Format("yyyy-MM-dd");
-        console.log( date);
-        $("[name=brrow_time]").val(date);
-    });
-
-    Date.prototype.Format = function(fmt){
-        var o = {
-            "M+": this.getMonth()+1,
-            "d+": this.getDate(),
-            "H+": this.getHours(),
-            "m+": this.getMinutes(),
-            "s+": this.getSeconds(),
-            "S+": this.getMilliseconds()
-        };
-        // test()方法用于检测一个字符串是否匹配某个模式.
-        //因为date.getFullYear()出来的结果是number类型的,所以为了让结果变成字符串型，下面有两种方法：
-        if(/(y+)/.test(fmt)){
-            //第一种：利用字符串连接符“+”给date.getFullYear()+""，加一个空字符串便可以将number类型转换成字符串。
-            fmt=fmt.replace(RegExp.$1,(this.getFullYear()+"").substr(4-RegExp.$1.length));
-        }
-        for(var k in o){
-            if (new RegExp("(" + k +")").test(fmt)){
-                //第二种：使用String()类型进行强制数据类型转换String(date.getFullYear())，这种更容易理解。
-                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(String(o[k]).length)));
-            }
-        }
-        return fmt;
-    };
-
-</script>
 
 <body>
 <form   >
@@ -52,16 +20,30 @@
         <label class="search_label"  >出版社:</label>    <input type="text" class="editText" name="publisher"  />
     </div>
 
+    <div class="form-group search_row" style="clear: both;float:left" >      <%-- 通过左浮动使多个div在一行显示--%>
+        <label class="search_label" >一级分类:</label>
+         <select   class="editText" name="first_classification" >
+                <option>全部</option>
+         </select>
+    </div>
+    <div class="form-group search_row"  style="float:left"  >
+        <label class="search_label"  >二级分类:</label>
+        <select  class="editText" name="second_classification"  >
+              <option>全部</option>
+        </select>
+    </div>
+
    <div class="form_group search_row"  style="clear: both; float:left">      <%-- 此处必须清除浮动--%>
         <label  class="search_label">作者:</label> <input type="text" class="editText" name="author"/>
     </div>
     <div class="form_group search_row"  style="float:left"  >
-        <label class="search_label" >借出时间:</label> <input type="date" id="brrow_time"  name="brrow_time"  class="editText"/>
+        <label class="search_label" >借出时间:</label> <input type="date"  name="brrow_time"  class="editText"/>
     </div>
     <div style="clear:both"></div>
 
     <div class="form_group search_row" style="float:left">
         <input type="button" value="查询"  class="search_button">
+        <input type="reset" value="重置" class="search_button">
     </div>
 
 </form>

@@ -12,12 +12,19 @@
 }
 
 .editText {
-       width: 150px;
-       margin-right: 10px;
+    width: 150px;
+    margin-right: 10px;
+    color: #122e29;
+    border: 1px solid #005344;
+    /*background-color: #73b9a2;*/
 }
 
+/*选中后的样式*/
+.editText:focus {
+    border: 1px solid blue;
+}
 
 .search_button {
-    width:200px;
-    margin-left: 150px ;
+    width:230px;
+    /*margin-left: 150px ;*/
 }
