@@ -2,7 +2,11 @@
  * Created by lenovo on 2018/8/22.
  */
 
+//jquery内容如下：
 $(document).ready(function () {
+
+
+    //Date的prototype 属性可以向Date对象添加属性和方法。
     Date.prototype.Format = function(fmt){
         var o = {
             "M+": this.getMonth()+1,
@@ -28,12 +32,49 @@ $(document).ready(function () {
     };
 
 
-    // 设置默认日期选项
+
+    // 设置借出时间的默认日期选项
     var date=new Date().Format("yyyy-MM-dd");
     console.log( date);
-    $("[name=brrow_time]").val(date);
+    $("[id=brrow_time]").val(date);
 
 
+  //设置一级分类
+    // 先获得一级分类对象
 
+    //以下采用dom来添加选项
+    var province = document.getElementById("province");
+   //遍历并将数据追加到option选项中
+   for(var i=0;i<china.length;i++) {
+         var option=document.createElement("option");
+         option.value=china[i].p_id;
+         option.innerHTML=china[i].p_name;
+         province.appendChild(option);
+   }
+
+   //下拉框发生改变事件
+    province.onchange=function () {
+        //获取点击对象的值
+        var provinceId=this.value;
+        var cities;
+
+        for(var i=0;i<china.length;i++) {
+            if(provinceId == china[i].p_id) {
+                cities=china[i].cities;
+            }
+        }
+
+       //以下采用jquery来添加选项
+       //  var city = document.getElementById("city");
+        var city=$("#city");
+        city.innerHTML="<option value='none'>--请选择市--</option>";
+        for(var i=0;i<cities.length;i++) {
+            var option=document.createElement("option");
+            option.innerHTML=cities[i].c_name;
+            option.value=cities[i]. c_id;
+            // city.appendChild(option);
+            city.append(option);
+        }
+    };
 });
 

@@ -13,7 +13,7 @@
 </head>
 <body>
          <div id="top">
-             <a href="index.jsp"><img src="/img/blue.png" width="1100px" /></a>
+             <a href="index.jsp"><img src="/img/blue.png" width="1000px" /></a>
          </div>
 
          <div id="navigation">
@@ -23,7 +23,7 @@
              <li><a href="/user/login">登陆</a> <br></li>
              <li><a href="/user/showUsers">显示用户</a></li>
              <li><a href="/book/listBook?nowPage=1">显示图书</a></li>
-             <li><a href="/book/searchBook" >图书检索</a> </li>
+             <li><a href="/book/searchBook" >图书查询</a> </li>
               <li><a href="/user/test">测试页面</a></li>
            </ul>
          </div>
