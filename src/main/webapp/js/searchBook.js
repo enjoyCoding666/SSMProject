@@ -5,7 +5,6 @@
 //jquery内容如下：
 $(document).ready(function () {
 
-
     //Date的prototype 属性可以向Date对象添加属性和方法。
     Date.prototype.Format = function(fmt){
         var o = {
@@ -39,13 +38,12 @@ $(document).ready(function () {
     $("[id=brrow_time]").val(date);
 
 
-  //设置一级分类
+    //设置一级分类
     // 先获得一级分类对象
-
-    //以下采用dom来添加选项
     var province = document.getElementById("province");
    //遍历并将数据追加到option选项中
    for(var i=0;i<china.length;i++) {
+       //以下采用dom来添加选项
          var option=document.createElement("option");
          option.value=china[i].p_id;
          option.innerHTML=china[i].p_name;
@@ -76,5 +74,8 @@ $(document).ready(function () {
             city.append(option);
         }
     };
+
+
 });
+
 

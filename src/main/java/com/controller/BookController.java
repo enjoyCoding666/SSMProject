@@ -26,22 +26,36 @@ public class BookController {
 
     /**
      * 通过 http://localhost:8080/book/listBook?nowPage=页数  访问
+     * 待删除。
      * @param request
      * @return
      */
-       @RequestMapping(value = "/listBook",method = RequestMethod.GET)
-       public String listBook(HttpServletRequest request){
+//       @RequestMapping(value = "/listBook",method = RequestMethod.GET)
+//       public String listBook(HttpServletRequest request){
+//           int nowPage=Integer.parseInt(request.getParameter("nowPage"));
+//           List bookList=this.bookDao.selectPageBooks( (nowPage-1)*SIZE,SIZE);
+//           int amount=this.bookDao.selectAllBooks().size();
+//           PageUtil page=new PageUtil(SIZE,amount,nowPage);
+//           request.setAttribute("bookList",bookList);
+//           request.setAttribute("page",page);
+//           return  "searchBook";
+//       }
+
+    /**
+     * 通过 http://localhost:8080/book/searchBook?nowPage=页数  访问
+     *  将分页页面和查询页面放在一起。。
+     * @param request
+     * @return
+     */
+       @RequestMapping(value = "/searchBook",method  =RequestMethod.GET )
+       public String searchBook(HttpServletRequest request) {
            int nowPage=Integer.parseInt(request.getParameter("nowPage"));
            List bookList=this.bookDao.selectPageBooks( (nowPage-1)*SIZE,SIZE);
            int amount=this.bookDao.selectAllBooks().size();
            PageUtil page=new PageUtil(SIZE,amount,nowPage);
            request.setAttribute("bookList",bookList);
            request.setAttribute("page",page);
-           return  "listbooks";
-       }
 
-       @RequestMapping(value = "/searchBook",method  =RequestMethod.GET )
-       public String searchBook() {
            return "searchBook";
        }
 

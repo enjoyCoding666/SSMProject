@@ -28,3 +28,33 @@
     width:230px;
     /*margin-left: 150px ;*/
 }
+
+
+
+
+/*分页的table样式如下：*/
+table.gridtable {
+    margin: 50px 0 5px 5px;
+    font-family: verdana,arial,sans-serif;
+    font-size:14px;
+    color:#333333;
+    border-width: 2px;
+    border-color: black;
+    border-collapse: collapse;
+    font-weight:bold;
+
+}
+table.gridtable th {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #666666;
+    background-color: #dedede;
+}
+table.gridtable td {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #666666;
+    background-color: #ffffff;
+}

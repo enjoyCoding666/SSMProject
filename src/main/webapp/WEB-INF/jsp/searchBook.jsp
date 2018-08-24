@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -11,9 +12,16 @@
     <script src="/js/searchBook.js" type="text/javascript" ></script>
     <script src="/js/cities.js" type="text/javascript"></script>
 </head>
+<script type="text/javascript" >
+    //设置分页页面的跳转链接
+    function setHref() {
+        var value=$("#option").val();
+        $("#pageUrl").attr("href","${pageContext.request.contextPath}/book/searchBook?nowPage="+value);
+    }
+</script>
 
 <body>
-<form   >
+<form  >
     <div class="form-group search_row" style="float:left" >      <%-- 通过左浮动使多个div在一行显示--%>
         <label class="search_label" >图书名称:</label>    <input type="text" class="editText" id="bookName" />
     </div>
@@ -48,5 +56,33 @@
     </div>
 
 </form>
+
+  <div style="clear: both;" >
+    <table   class="gridtable">
+        <c:forEach var="book" items="${requestScope.bookList}">
+            <tr>
+                <td> ${  book.getBookId() }</td>
+                <td>  ${ book.getType() }</td>
+                <td>  ${ book.getAuthor()} </td>
+                <td> ${  book.getPublishers() }    </td>
+                <td> ${  book.getBorrowdate() } </td>
+            </tr>
+        </c:forEach>
+    </table>
+    <a href="${pageContext.request.contextPath}/book/searchBook?nowPage=1">首页</a>
+    <a href="${pageContext.request.contextPath}/book/searchBook?nowPage=${requestScope.page.getPreviousPage() }">上一页</a>
+    <a href="${pageContext.request.contextPath}/book/searchBook?nowPage=${ requestScope.page.getNextPage() }">下一页</a>
+    <select title="select" id="option" >
+        <c:forEach var="page" begin="1" end="${requestScope.page.getPage() }" step="1" >
+            <option> ${ page }</option>
+        </c:forEach>
+    </select>
+    <a id="pageUrl" onclick="setHref()">跳转页面</a>
+    <a href="${pageContext.request.contextPath}/book/searchBook?nowPage=${requestScope.page.getPage()}">末页</a>
+    <br><br>
+    当前页数:${requestScope.page.getNowPage() }<br>
+    总页数 : ${ requestScope.page.getPage() }
+
+  </div>
 </body>
 </html>
