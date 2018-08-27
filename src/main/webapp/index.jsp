@@ -22,7 +22,6 @@
              <li><a href="/user/register">注册</a></li>
              <li><a href="/user/login">登陆</a> <br></li>
              <li><a href="/user/showUsers">显示用户</a></li>
-             <li><a href="/book/listBook?nowPage=1">显示图书</a></li>
              <li><a href="/book/searchBook?nowPage=1" >图书查询</a> </li>
               <li><a href="/user/test">测试页面</a></li>
            </ul>

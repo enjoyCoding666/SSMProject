@@ -20,7 +20,9 @@ public interface BookDao {
 
     List<Book> selectAllBooks();
 
-    List<Book> selectPageBooks(@Param("nowPage") int nowPage, @Param("limitPage")  int limitPage);
+    List<Book> selectPageBooks(@Param("nowPage") int nowPage, @Param("limitPage")  int limitPage ,
+                                  @Param("name") String name ,  @Param("author")String author,
+                               @Param("publishers")  String publishers ,  @Param("borrowDate") String borrowDate   );
 
     List<Book> selectBookInfoByUserId();
 }

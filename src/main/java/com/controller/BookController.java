@@ -7,6 +7,7 @@ import com.util.PageUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -24,22 +25,6 @@ public class BookController {
        private BookDao bookDao;
        private final int SIZE=3;
 
-    /**
-     * 通过 http://localhost:8080/book/listBook?nowPage=页数  访问
-     * 待删除。
-     * @param request
-     * @return
-     */
-//       @RequestMapping(value = "/listBook",method = RequestMethod.GET)
-//       public String listBook(HttpServletRequest request){
-//           int nowPage=Integer.parseInt(request.getParameter("nowPage"));
-//           List bookList=this.bookDao.selectPageBooks( (nowPage-1)*SIZE,SIZE);
-//           int amount=this.bookDao.selectAllBooks().size();
-//           PageUtil page=new PageUtil(SIZE,amount,nowPage);
-//           request.setAttribute("bookList",bookList);
-//           request.setAttribute("page",page);
-//           return  "searchBook";
-//       }
 
     /**
      * 通过 http://localhost:8080/book/searchBook?nowPage=页数  访问
@@ -48,16 +33,20 @@ public class BookController {
      * @return
      */
        @RequestMapping(value = "/searchBook",method  =RequestMethod.GET )
-       public String searchBook(HttpServletRequest request) {
-           int nowPage=Integer.parseInt(request.getParameter("nowPage"));
-           List bookList=this.bookDao.selectPageBooks( (nowPage-1)*SIZE,SIZE);
-           int amount=this.bookDao.selectAllBooks().size();
-           PageUtil page=new PageUtil(SIZE,amount,nowPage);
-           request.setAttribute("bookList",bookList);
-           request.setAttribute("page",page);
+       public String searchBook(HttpServletRequest request , @RequestParam(value="name",required = false)String name ,
+                 @RequestParam(value="author",required = false)String author ,
+                 @RequestParam(value="publishers",required = false)String publishers ,
+                 @RequestParam(value="borrowDate",required = false)String borrowDate   ) {
+        int nowPage=Integer.parseInt(request.getParameter("nowPage"));
+        List bookList=this.bookDao.selectPageBooks( (nowPage-1)*SIZE,SIZE ,name,author,publishers,borrowDate );
+        int amount=this.bookDao.selectAllBooks().size();
+        PageUtil page=new PageUtil(SIZE,amount,nowPage);
+        request.setAttribute("bookList",bookList);
+        request.setAttribute("page",page);
 
-           return "searchBook";
-       }
+        return "searchBook";
+    }
 
 
 }
+

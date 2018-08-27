@@ -21,12 +21,12 @@
 </script>
 
 <body>
-<form  >
+<form  action="/book/searchBook">
     <div class="form-group search_row" style="float:left" >      <%-- 通过左浮动使多个div在一行显示--%>
         <label class="search_label" >图书名称:</label>    <input type="text" class="editText" id="bookName" />
     </div>
     <div class="form-group search_row"  style="float:left"  >
-        <label class="search_label"  >出版社:</label>    <input type="text" class="editText" id="publisher"  />
+        <label class="search_label"  >出版社:</label>    <input type="text" class="editText" id="publishers"  />
     </div>
 
     <div class="form-group search_row" style="clear: both;float:left" >      <%-- 通过左浮动使多个div在一行显示--%>
@@ -46,12 +46,12 @@
         <label  class="search_label">作者:</label> <input type="text" class="editText" id="author"/>
     </div>
     <div class="form_group search_row"  style="float:left"  >
-        <label class="search_label" >借出时间:</label> <input type="date"  id="brrow_time"  class="editText"/>
+        <label class="search_label" >借出时间:</label> <input type="date"  id="brrowDate"  class="editText"/>
     </div>
     <div style="clear:both"></div>
 
     <div class="form_group search_row" style="float:left">
-        <input type="button" value="查询"  class="search_button">
+        <input type="button" value="查询" id="search_books"  class="search_button">
         <input type="reset" value="重置" class="search_button">
     </div>
 

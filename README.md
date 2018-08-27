@@ -23,6 +23,14 @@ SSM框架练手项目
 二、遇到的问题：
 1.html如何优雅地打出多个空格？
 2.html的时间选择器如何设定初始时间？理解js中Date的prototype属性。
+3.报错405 - Method Not Allowed。Request method 'GET' not supported
+4.报错400–Bad Request。Required String parameter ' ' is not present
+ @RequestParam(value="name",required = false)String name。在SpringMvc的Controller层，添加required = false即可。表示不是必须的参数。
+5.Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where' at line 4
+  ; bad SQL grammar []; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where' at line 4] with root cause
+   com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where' at line 4
+ 
+
 三、遇到的错误：
 1.<mvc:interceptor>不起作用。
 2.Idea报错：The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.

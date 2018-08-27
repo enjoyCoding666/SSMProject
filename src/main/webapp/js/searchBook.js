@@ -76,6 +76,24 @@ $(document).ready(function () {
     };
 
 
+    var $name=$("#bookName").val();
+    var $author=$("#author").val();
+    var $publishers=$("#publishers").val();
+    var $borrowDate =$("#brrow_time").val();
+    var urlPath= "/book/searchBook?name="+ $name +"&author="+ $author +"&publisher"+$publishers+"&borrowDate"+$borrowDate ;
+     //通过ajax，根据查询条件，查出分页页面
+     // $("#search_books").click(function () {
+     //     $.ajax( {
+     //             url:  book/searchBook   ,
+     //             type: post ,
+     //             data :  { name: $name ,author: $author , publishers : $publishers ,  borrowDate:$borrowDate  } ,
+     //             // dataType :json ,
+     //             // success : function () {
+     //             //
+     //             // }
+     //
+     //       } );
+     // });
 });
 
 
