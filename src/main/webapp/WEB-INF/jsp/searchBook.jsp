@@ -18,11 +18,42 @@
         var value=$("#option").val();
         $("#pageUrl").attr("href","${pageContext.request.contextPath}/book/searchBook?nowPage="+value);
     }
+
+    $(document).ready(function () {
+
+        var $name=$("#bookName").val();
+        var $author=$("#author").val();
+        var $publishers=$("#publishers").val();
+        // 通过ajax，根据查询条件，查出分页页面
+        $("#search_books").click(function () {
+            $.ajax( {
+                url:  " /book/listBook "  ,
+                type: "GET" ,
+                data :  { name: $name ,author: $author , publishers : $publishers   } ,
+                dataType : "json"  ,
+                success : function (bookList) {
+                    $('#tb tr:gt(0)').remove();//删除之前的数据
+                    var s = '';
+                    for (var i = 0; i < bookList.length; i++)  {
+                        s += '<tr><td>' + bookList[i].bookId + '</td><td>' + bookList[i].name + '</td><td>' + bookList[i].type + '</td>' + '<td>' + bookList[i].author + '</td><td>' +
+                            bookList[i].borrowDate + '</td><td>----</td></tr>' ;
+                    }
+                    $('#tb').append(s);
+                },
+                error :function () {
+                    alert("ajax请求数据失败。")
+                }
+            } );
+        });
+
+
+    });
+
 </script>
 
 <body>
-<form  action="/book/searchBook">
-    <div class="form-group search_row" style="float:left" >      <%-- 通过左浮动使多个div在一行显示--%>
+<%--<form   >     &lt;%&ndash;   使用ajax异步刷新。 &ndash;%&gt;--%>
+    <div class="form-group search_row" style="float:left" >      <%-- 通过左浮动使多个div在一行显示  --%>
         <label class="search_label" >图书名称:</label>    <input type="text" class="editText" id="bookName" />
     </div>
     <div class="form-group search_row"  style="float:left"  >
@@ -55,13 +86,14 @@
         <input type="reset" value="重置" class="search_button">
     </div>
 
-</form>
+<%--</form>--%>
 
   <div style="clear: both;" >
-    <table   class="gridtable">
+    <table   class="gridtable"  id="tb">
         <c:forEach var="book" items="${requestScope.bookList}">
             <tr>
                 <td> ${  book.getBookId() }</td>
+                <td> ${  book.getName() }</td>
                 <td>  ${ book.getType() }</td>
                 <td>  ${ book.getAuthor()} </td>
                 <td> ${  book.getPublishers() }    </td>

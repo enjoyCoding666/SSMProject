@@ -5,6 +5,11 @@
 //jquery内容如下：
 $(document).ready(function () {
 
+    // 设置借出时间的默认日期选项
+    var date=new Date().Format("yyyy-MM-dd");
+    console.log( date);
+    $("[id=brrow_time]").val(date);
+
     //Date的prototype 属性可以向Date对象添加属性和方法。
     Date.prototype.Format = function(fmt){
         var o = {
@@ -30,12 +35,6 @@ $(document).ready(function () {
         return fmt;
     };
 
-
-
-    // 设置借出时间的默认日期选项
-    var date=new Date().Format("yyyy-MM-dd");
-    console.log( date);
-    $("[id=brrow_time]").val(date);
 
 
     //设置一级分类
@@ -76,24 +75,6 @@ $(document).ready(function () {
     };
 
 
-    var $name=$("#bookName").val();
-    var $author=$("#author").val();
-    var $publishers=$("#publishers").val();
-    var $borrowDate =$("#brrow_time").val();
-    var urlPath= "/book/searchBook?name="+ $name +"&author="+ $author +"&publisher"+$publishers+"&borrowDate"+$borrowDate ;
-     //通过ajax，根据查询条件，查出分页页面
-     // $("#search_books").click(function () {
-     //     $.ajax( {
-     //             url:  book/searchBook   ,
-     //             type: post ,
-     //             data :  { name: $name ,author: $author , publishers : $publishers ,  borrowDate:$borrowDate  } ,
-     //             // dataType :json ,
-     //             // success : function () {
-     //             //
-     //             // }
-     //
-     //       } );
-     // });
 });
 
 

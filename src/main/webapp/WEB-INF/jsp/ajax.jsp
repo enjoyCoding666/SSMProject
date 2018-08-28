@@ -16,17 +16,17 @@
        $("#search").click(function () {
            console.log("ajax")
             $.ajax({
-                type:"POST",
-                url:"/user/searchUser",
-                data: {id: $("#id").val() },
-                dataType:"json" ,
-                success: function (msg) {
+                type:"POST",                             //请求的类型
+                url:"/user/searchUser",                  //请求的路径
+                data: {id: $("#id").val() },              //请求的参数
+                dataType:"json" ,                        //返回的数据类型
+                success: function (msg) {                 //成功返回触发的方法
                      //修改id和年龄
                     console.log(msg.userName +"、"+msg.age);
                     $("#name").html(msg.userName);
                     $("#age").html(msg.age);
                 },
-                error:function () {
+                error:function () {                      //请求失败触发的方法
                     alert("数据请求失败");
                 }
             })
