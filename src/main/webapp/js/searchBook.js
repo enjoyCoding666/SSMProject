@@ -5,10 +5,6 @@
 //jquery内容如下：
 $(document).ready(function () {
 
-    // 设置借出时间的默认日期选项
-    var date=new Date().Format("yyyy-MM-dd");
-    console.log( date);
-    $("[id=brrow_time]").val(date);
 
     //Date的prototype 属性可以向Date对象添加属性和方法。
     Date.prototype.Format = function(fmt){
@@ -35,7 +31,10 @@ $(document).ready(function () {
         return fmt;
     };
 
-
+    // 设置借出时间的默认日期选项
+    var date=new Date().Format("yyyy-MM-dd");
+    console.log( date);
+    $("[id=brrow_time]").val(date);
 
     //设置一级分类
     // 先获得一级分类对象

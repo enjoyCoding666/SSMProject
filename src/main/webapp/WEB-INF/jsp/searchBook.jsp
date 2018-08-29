@@ -20,25 +20,23 @@
     }
 
     $(document).ready(function () {
-
-        var $name=$("#bookName").val();
-        var $author=$("#author").val();
-        var $publishers=$("#publishers").val();
+        var nowPage= 1 ;           //
         // 通过ajax，根据查询条件，查出分页页面
         $("#search_books").click(function () {
             $.ajax( {
                 url:  " /book/listBook "  ,
-                type: "GET" ,
-                data :  { name: $name ,author: $author , publishers : $publishers   } ,
+                type: "POST" ,
+                data :  { name: $("#bookName").val() ,author: $("#author").val() , publishers : $("#publishers").val() ,nowPage:  nowPage  } ,
                 dataType : "json"  ,
-                success : function (bookList) {
-                    $('#tb tr:gt(0)').remove();//删除之前的数据
+                success : function (json) {
+                    $("#bookTable tr:gt(0)").remove();    //清空表格数据
                     var s = '';
-                    for (var i = 0; i < bookList.length; i++)  {
-                        s += '<tr><td>' + bookList[i].bookId + '</td><td>' + bookList[i].name + '</td><td>' + bookList[i].type + '</td>' + '<td>' + bookList[i].author + '</td><td>' +
-                            bookList[i].borrowDate + '</td><td>----</td></tr>' ;
-                    }
-                    $('#tb').append(s);
+                    for (var i = 0; i < json.length; i++)  {
+                        console.log(json[i].publishers);
+                        s += '<tr><td>' + json[i].bookId + '</td><td>' + json[i].name + '</td><td>' + json[i].type + '</td><td>' + json[i].author +
+                            '</td><td>' + json[i].publishers + '</td><td>' +  json[i].borrowDate + '</td> </tr>' ;
+                     }
+                    $("#bookTable").append(s);
                 },
                 error :function () {
                     alert("ajax请求数据失败。")
@@ -77,7 +75,7 @@
         <label  class="search_label">作者:</label> <input type="text" class="editText" id="author"/>
     </div>
     <div class="form_group search_row"  style="float:left"  >
-        <label class="search_label" >借出时间:</label> <input type="date"  id="brrowDate"  class="editText"/>
+        <label class="search_label" >借出时间:</label> <input type="date"  id="borrowDate"  class="editText"/>
     </div>
     <div style="clear:both"></div>
 
@@ -89,17 +87,25 @@
 <%--</form>--%>
 
   <div style="clear: both;" >
-    <table   class="gridtable"  id="tb">
+    <table   class="gridtable"  id="bookTable">
+       <thead>
+        <tr>
+            <td>编号</td> <td>图书名称</td> <td>分类</td> <td>作者</td>
+            <td>出版社</td>  <td>借出时间</td>
+        </tr>
+       </thead>
+       <tbody>
         <c:forEach var="book" items="${requestScope.bookList}">
-            <tr>
+            <tr id="bookInfo">
                 <td> ${  book.getBookId() }</td>
                 <td> ${  book.getName() }</td>
                 <td>  ${ book.getType() }</td>
                 <td>  ${ book.getAuthor()} </td>
                 <td> ${  book.getPublishers() }    </td>
-                <td> ${  book.getBorrowdate() } </td>
+                <td> ${  book.getBorrowDate() } </td>
             </tr>
         </c:forEach>
+       </tbody>
     </table>
     <a href="${pageContext.request.contextPath}/book/searchBook?nowPage=1">首页</a>
     <a href="${pageContext.request.contextPath}/book/searchBook?nowPage=${requestScope.page.getPreviousPage() }">上一页</a>

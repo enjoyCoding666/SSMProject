@@ -26,18 +26,19 @@
       select <include refid="Base_Column_List"/>  from book_t
   </select>
   <select id="selectPageBooks" resultMap="BaseResultMap" >
-       select <include refid="Base_Column_List"/> from book_t limit #{nowPage},#{limitPage}
+       select <include refid="Base_Column_List"/> from book_t
         <where>
-           <if test="name != null" >
+           <if test="name != null and name!=''  " >
               and  name = #{name }
            </if>
-           <if test="author !=null" >
+           <if test="author !=null and author!='' " >
              and  author= #{ author }
            </if>
-           <if test="publishers != null" >
+           <if test="publishers != null and publishers!='' " >
               and   publishers = #{publishers }
            </if>
         </where>
+      limit #{nowPage},#{limitPage}
   </select>
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
@@ -49,7 +50,7 @@
       author, publishers, borrowDate
       )
     values (#{bookId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
-      #{author,jdbcType=VARCHAR}, #{publishers,jdbcType=VARCHAR}, #{borrowdate,jdbcType=TIMESTAMP}
+      #{author,jdbcType=VARCHAR}, #{publishers,jdbcType=VARCHAR}, #{borrowDate,jdbcType=TIMESTAMP}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.model.Book" >
@@ -70,7 +71,7 @@
       <if test="publishers != null" >
         publishers,
       </if>
-      <if test="borrowdate != null" >
+      <if test="borrowDate != null" >
         borrowDate,
       </if>
     </trim>
@@ -90,8 +91,8 @@
       <if test="publishers != null" >
         #{publishers,jdbcType=VARCHAR},
       </if>
-      <if test="borrowdate != null" >
-        #{borrowdate,jdbcType=TIMESTAMP},
+      <if test="borrowDate != null" >
+        #{borrowDate,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -110,8 +111,8 @@
       <if test="publishers != null" >
         publishers = #{publishers,jdbcType=VARCHAR},
       </if>
-      <if test="borrowdate != null" >
-        borrowDate = #{borrowdate,jdbcType=TIMESTAMP},
+      <if test="borrowDate != null" >
+        borrowDate = #{borrowDate,jdbcType=TIMESTAMP},
       </if>
     </set>
     where book_id = #{bookId,jdbcType=INTEGER}
@@ -122,7 +123,7 @@
     type = #{type,jdbcType=VARCHAR},
     author = #{author,jdbcType=VARCHAR},
     publishers = #{publishers,jdbcType=VARCHAR},
-    borrowDate = #{borrowdate,jdbcType=TIMESTAMP}
+    borrowDate = #{borrowDate,jdbcType=TIMESTAMP}
     where book_id = #{bookId,jdbcType=INTEGER}
   </update>
 </mapper>

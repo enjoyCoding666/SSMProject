@@ -34,14 +34,14 @@ public class BookController {
      * @param publishers
      * @return
      */
-    @RequestMapping(value = "/listBook",method  =RequestMethod.GET )
+    @RequestMapping(value = "/listBook",method  =RequestMethod.POST )
     @ResponseBody
-    public List listBooks(HttpServletRequest request , @RequestParam(value="name",required = false)String name ,
+    public List<Book> listBooks(HttpServletRequest request , @RequestParam(value="name",required = false)String name ,
                              @RequestParam(value="author",required = false)String author ,
-                             @RequestParam(value="publishers",required = false)String publishers ) {
-        //这里有错。记得改
-        int nowPage=Integer.parseInt(request.getParameter("nowPage"));
-        List bookList=this.bookDao.selectPageBooks( (nowPage-1)*SIZE,SIZE ,name,author,publishers  );
+                             @RequestParam(value="publishers",required = false)String publishers ,
+                             @RequestParam(value="nowPage",required = false)int nowPage ) {
+//此处的分页，改用pageHelper更方便。。
+        List<Book> bookList=this.bookDao.selectPageBooks( (nowPage-1)*SIZE,SIZE ,name,author,publishers  );
         int amount=this.bookDao.selectAllBooks().size();
         PageUtil page=new PageUtil(SIZE,amount,nowPage);
         request.setAttribute("bookList",bookList);
@@ -49,7 +49,6 @@ public class BookController {
 
          return  bookList;
     }
-
 
 
     /**

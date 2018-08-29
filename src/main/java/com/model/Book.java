@@ -12,15 +12,15 @@ public class Book {
 
     private String publishers;
 
-    private String borrowdate;
+    private String borrowDate;
 
-    public Book(Integer bookId, String name, String type, String author, String publishers, String borrowdate) {
+    public Book(Integer bookId, String name, String type, String author, String publishers, String borrowDate) {
         this.bookId = bookId;
         this.name = name;
         this.type = type;
         this.author = author;
         this.publishers = publishers;
-        this.borrowdate = borrowdate;
+        this.borrowDate = borrowDate;
     }
 
     public Book() {
@@ -67,12 +67,12 @@ public class Book {
         this.publishers = publishers == null ? null : publishers.trim();
     }
 
-    public String getBorrowdate() {
-        return borrowdate;
+    public String getBorrowDate() {
+        return borrowDate;
     }
 
-    public void setBorrowdate(String borrowdate) {
-        this.borrowdate = borrowdate;
+    public void setBorrowDate(String borrowDate) {
+        this.borrowDate = borrowDate;
     }
 
 }

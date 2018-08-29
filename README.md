@@ -17,21 +17,20 @@ SSM框架练手项目
 13.文本框、各个控件的css样式等。 <br>
 14.搜索功能。自动补全功能。  <br>
 15.修改注册、登录的界面。。  <br>
-16.将查询功能和分页显示放在一起。
-17.添加redis缓存。
+16.将查询功能和分页显示放在一起。 <br>
+17.添加redis缓存。 <br>
 
-二、遇到的问题：
-1.html的时间选择器如何设定初始时间？
-解决：理解js中Date的prototype属性。
-2.外部的js文件突然失效，如何处理？
-
-三、遇到的错误：
-1.<mvc:interceptor>不起作用。
-2.Idea报错：The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.
-3.报错405 - Method Not Allowed。Request method 'GET' not supported
-解决：GET和POST区别。
-4.报错400–Bad Request。Required String parameter ' ' is not present
-解决： @RequestParam(value="name",required = false)String name。在SpringMvc的Controller层，添加required = false即可。表示不是必须的参数。
-5.Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where' at line 4
- 解决：改正mybatis中的sql就可以了。
-
+二、遇到的问题： <br>
+1.<mvc:interceptor>不起作用。     <br>        
+2.Idea报错：The origin server did not find a current representation for the target resource or is not willing to disclose that one exists. <br>
+3.报错405 - Method Not Allowed。Request method 'GET' not supported     <br>      
+解决：GET和POST区别。 修改 Controller层的 method  =RequestMethod.POST            <br>
+4.报错400–Bad Request。Required String parameter ' ' is not present        <br>  
+解决： @RequestParam(value="name",required = false)String name。在SpringMvc的Controller层，添加required = false即可。表示不是必须的参数。 <br>
+5.Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where' at line 4 <br>
+ 解决：改正mybatis中的sql就可以了。 <br>
+6.mybaits没有打印sql。。结果limit放在where前面。导致mbatis一直报错。。 <br>
+7.html的时间选择器如何设定初始时间？       <br>  
+解决：理解js中Date的prototype属性。    <br>       
+8.外部的js文件突然失效，如何处理？       <br>      
+9.前端json数据乱码。。
