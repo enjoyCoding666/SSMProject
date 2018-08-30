@@ -8,46 +8,10 @@
     <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/jquery/jquery-3.2.1.js"></script>
-
     <script src="/js/searchBook.js" type="text/javascript" ></script>
     <script src="/js/cities.js" type="text/javascript"></script>
 </head>
-<script type="text/javascript" >
-    //设置分页页面的跳转链接
-    function setHref() {
-        var value=$("#option").val();
-        $("#pageUrl").attr("href","${pageContext.request.contextPath}/book/searchBook?nowPage="+value);
-    }
 
-    $(document).ready(function () {
-        var nowPage= 1 ;           //
-        // 通过ajax，根据查询条件，查出分页页面
-        $("#search_books").click(function () {
-            $.ajax( {
-                url:  " /book/listBook "  ,
-                type: "POST" ,
-                data :  { name: $("#bookName").val() ,author: $("#author").val() , publishers : $("#publishers").val() ,nowPage:  nowPage  } ,
-                dataType : "json"  ,
-                success : function (json) {
-                    $("#bookTable tr:gt(0)").remove();    //清空表格数据
-                    var s = '';
-                    for (var i = 0; i < json.length; i++)  {
-                        console.log(json[i].publishers);
-                        s += '<tr><td>' + json[i].bookId + '</td><td>' + json[i].name + '</td><td>' + json[i].type + '</td><td>' + json[i].author +
-                            '</td><td>' + json[i].publishers + '</td><td>' +  json[i].borrowDate + '</td> </tr>' ;
-                     }
-                    $("#bookTable").append(s);
-                },
-                error :function () {
-                    alert("ajax请求数据失败。")
-                }
-            } );
-        });
-
-
-    });
-
-</script>
 
 <body>
 <%--<form   >     &lt;%&ndash;   使用ajax异步刷新。 &ndash;%&gt;--%>
@@ -80,7 +44,7 @@
     <div style="clear:both"></div>
 
     <div class="form_group search_row" style="float:left">
-        <input type="button" value="查询" id="search_books"  class="search_button">
+        <input type="button" value="查询" id="search_books"  class="search_button" onclick="postHref(1)">
         <input type="reset" value="重置" class="search_button">
     </div>
 
@@ -107,16 +71,16 @@
         </c:forEach>
        </tbody>
     </table>
-    <a href="${pageContext.request.contextPath}/book/searchBook?nowPage=1">首页</a>
-    <a href="${pageContext.request.contextPath}/book/searchBook?nowPage=${requestScope.page.getPreviousPage() }">上一页</a>
-    <a href="${pageContext.request.contextPath}/book/searchBook?nowPage=${ requestScope.page.getNextPage() }">下一页</a>
+    <a   href="javascript:void(0);" onclick="postHref(1)">首页</a>
+    <a  href="javascript:void(0);" onclick="postHref( ${requestScope.page.getPreviousPage() } )">上一页</a>
+    <a  href="javascript:void(0);" onclick="postHref( ${requestScope.page.getNextPage() } )">下一页</a>
     <select title="select" id="option" >
         <c:forEach var="page" begin="1" end="${requestScope.page.getPage() }" step="1" >
             <option> ${ page }</option>
         </c:forEach>
     </select>
-    <a id="pageUrl" onclick="setHref()">跳转页面</a>
-    <a href="${pageContext.request.contextPath}/book/searchBook?nowPage=${requestScope.page.getPage()}">末页</a>
+    <a  href="javascript:void(0);" id="pageUrl" onclick="setHref()">跳转页面</a>
+    <a   href="javascript:void(0);" onclick="postHref( ${requestScope.page.getPage() } )">末页</a>
     <br><br>
     当前页数:${requestScope.page.getNowPage() }<br>
     总页数 : ${ requestScope.page.getPage() }
